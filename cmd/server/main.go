@@ -41,6 +41,8 @@ func main() {
 		n, addr, err := conn.ReadFromUDP(buf)
 		if err != nil {
 			fmt.Printf("error reading from conn: %v\n", err)
+
+			continue
 		}
 		if strings.TrimSpace(string(buf[0:n])) == "QUIT" {
 			fmt.Println("Exiting UDP server...")
